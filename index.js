@@ -20,9 +20,13 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 async function run(){
     try{
+
+        //collections
         const serviceCollection = client.db('ancientShot').collection('services');
+        const reviewCollection = client.db('ancientShot').collection('reviews');
 
         //read
+        
         //only 3 data loading
         //all data load
         /* app.get('/services',async(req,res)=>{
