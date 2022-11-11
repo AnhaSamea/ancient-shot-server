@@ -74,6 +74,21 @@ async function run(){
             const reviews = await cursor.toArray();
             res.send(reviews);
         })
+
+        app.get('/reviews', async(req,res)=>{
+            // console.log(req.query.email);
+            let query ={};
+            const cursor = reviewCollection.find(query);
+            const reviews = await cursor.toArray().sort({time: -1});
+            res.send(reviews);
+        })
+        app.get('/reviews', async(req,res)=>{
+            // console.log(req.query.email);
+            let query ={};
+            const cursor = reviewCollection.find(query).sort({time: -1});
+            const reviews = await cursor.toArray();
+            res.send(reviews);
+        })
         
 
         app.post('/reviews', async(req,res)=>{
